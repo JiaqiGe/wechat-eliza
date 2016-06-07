@@ -17,17 +17,17 @@
     "plato": "plato -d reports/plato index.js"
   },
   "dependencies": {
-    "express": "latest",
-    "body-parser": "latest",
-    "static-favicon": "latest",
-    "jade": "latest",
-    "underscore": "latest",
-    "less-middleware": "latest",
     "async": "latest",
-    "express-xml-bodyparser": "latest",
-    "eliza": "0.0.1-2",
+    "body-parser": "latest",
     "dotenv": "",
-    "lodash-node": ""
+    "eliza": "0.0.1-2",
+    "express": "latest",
+    "express-xml-bodyparser": "latest",
+    "jade": "latest",
+    "less-middleware": "latest",
+    "lodash-node": "",
+    "static-favicon": "latest",
+    "underscore": "latest"
   },
   "devDependencies": {
     "nodemon": "latest",

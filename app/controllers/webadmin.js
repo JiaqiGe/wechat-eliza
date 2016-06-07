@@ -6,6 +6,7 @@ var util = require("util");
 var elizas = {};
 
 var replies = require('../bot/replies');
+var elizabot2 = require('../bot/elizabot.js');
 
 //only receives a GET request
 exports.index = function (req, res, next) {
@@ -21,23 +22,41 @@ exports.message = function (from, to, message) {
     // figure out if this is for us
     say = replies.find(message);
     if (say) {
-        return say;
+        return "try out hotels: www.expedia.com/go?type=Hotel-Search&destination=" + say +
+        " or open your app : expda://hotelSearch?";
     }
 
-    // do we already have a bot for this user?
-    var eliza = elizas[from]
-    if (!eliza) {
-        eliza = elizas[from] = new ElizaBot
+    var eliza2 = elizas[from]
+    if (!eliza2) {
+        eliza2 = elizas[from] = new elizabot2
         var init = elizas[from].getInitial()
         say = init;
         // just add it to the corpus so we remember it for later
-        eliza.transform(message);
+        eliza2.transform(message);
     } else {
         // otherwise, pick up
-        say = eliza.transform(message);
-        if (eliza.quit) delete elizas[from]
+        say = eliza2.transform(message);
+        if (eliza2.quit) delete elizas[from]
     }
-    return say;
+    
+    if (say) {
+        return say;
+    }
+
+    // // do we already have a bot for this user?
+    // var eliza = elizas[from]
+    // if (!eliza) {
+    //     eliza = elizas[from] = new ElizaBot
+    //     var init = elizas[from].getInitial()
+    //     say = init;
+    //     // just add it to the corpus so we remember it for later
+    //     eliza.transform(message);
+    // } else {
+    //     // otherwise, pick up
+    //     say = eliza.transform(message);
+    //     if (eliza.quit) delete elizas[from]
+    // }
+    // return say;
 }
 
 exports.receive = function (req, res, next) {

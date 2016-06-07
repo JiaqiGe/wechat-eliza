@@ -1,1 +1,1 @@
-rdwechatbot.heroku.com
+hackathonchicago.herokuapp.com
