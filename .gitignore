@@ -15,7 +15,7 @@ results
 node_modules
 npm-debug.log
 .DS_Store
-package.json
+
 
 *.env
 .idea

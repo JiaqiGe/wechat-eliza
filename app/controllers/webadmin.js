@@ -21,7 +21,7 @@ exports.message = function (from, to, message) {
     // figure out if this is for us
     say = replies.find(message);
       if (say) {
-         return "click this link, I already help you find all the hotels in this area: www.expedia.com/go?type=Hotel-Search&destination=" + say 
+         return say;
         ;
       }
 
@@ -67,13 +67,13 @@ exports.receive = function (req, res, next) {
     }
     res.contentType("application/xml");
     message.reply = exports.message(message.to, message.from, message.content);
-    var str = util.format("<xml><ToUserName>%s</ToUserName><FromUserName>%s</FromUserName><CreateTime>%d</CreateTime><MsgType>text</MsgType><Content><![CDATA[%s]]></Content></xml>", message.from, message.to, message.createtime + 1, message.reply);
 
+    var str = util.format("<xml><ToUserName>%s</ToUserName><FromUserName>%s</FromUserName><CreateTime>%d</CreateTime><MsgType>text</MsgType><Content><![CDATA[%s]]></Content></xml>", message.from, message.to, message.createtime + 1, message.reply);
+    var image = util.format("<xml><ToUserName>%s</ToUserName><FromUserName>%s</FromUserName><CreateTime>%d</CreateTime><MsgType>image</MsgType><PicUrl>http://a.travel-assets.com/lxweb/media-vault/395478_m.jpeg?v=101761</PicUrl></xml>", message.from, message.to, message.createtime + 1);
     console.log(message.from, ">", message.content);
     console.log(message.from, "<", message.reply);
     console.log("--");
     //console.log(str);
-    res.send(str);
-
+    res.send(image);
 }
 
