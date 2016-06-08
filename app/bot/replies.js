@@ -18,11 +18,6 @@ var replyData = [
     },
 
     {
-        regex: /hi/i,
-        reply: "hi, there, how are you"
-    },
-
-    {
         regex: /travel/i,
         reply: "You found the right one, I am a travel expert."
     },
