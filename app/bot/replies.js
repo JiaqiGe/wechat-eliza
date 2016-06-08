@@ -47,6 +47,7 @@ var replies = {
         // input=input.replace(/\s{2,}/g, ' ');
 
     // split input in part sentences and loop through them
+        return input;
         var parts=input.split(' ');
         for (var i=0; i<parts.length; i++) {
             console.log("parts:" + parts[i]);
