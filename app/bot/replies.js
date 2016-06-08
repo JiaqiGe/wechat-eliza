@@ -34,6 +34,13 @@ var replies = {
         //     //return one.fn(input);
         // }
         // console.log("input:" + input);
+
+        var url = "http://terminal2.expedia.com/x/activities/search?location=London&apikey=i1uIMsabJljtHYfUCvRsSe0jqm4R1nL1";
+        var Httpreq = new XMLHttpRequest();
+        Httpreq.open("GET", url, false);
+        Httpreq.send(null);
+        var json = Httpreq.responseText;
+        console.log(Httpreq.responseText);
         var location = ["chicago", "new york", "seattle", "los angeles", "houston",
         "philadelphia", "phoenix", "san antonio", "san diego", "las vegas", "dallas",
         "san jose", "austin", "columbus", "boston", "detroit", "honolulu", "long beach"];
