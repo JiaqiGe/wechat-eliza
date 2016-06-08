@@ -11,15 +11,9 @@ var replyData = [
     },
 
     {
-        regex: / * hotel * chicago * /i,
+        regex: /how are you/i,
         // reply: "I'm great, and you?"
-        reply: "chicago"
-    },
-
-    {
-        regex: / * Chicago * hotel * /i,
-        // reply: "I'm great, and you?"
-        reply: "chicago"
+        reply: "I'm great, and you?"
     },
 
     {
@@ -31,6 +25,14 @@ var replyData = [
 
 var replies = {
     find: function(input) {
+        // var res = replyData.filter(function(one) {
+        //     return one.regex.test(input);//test if there is a match
+        // });
+        // var one = _.sample(res);
+        // if (one) {
+        //     return one.reply;
+        //     //return one.fn(input);
+        // }
         console.log("input:" + input);
         var location = ["chicago", "new york", "seattle", "los angeles", "houston",
         "philadelphia", "phoenix", "san antonio", "san diego", "las vegas", "dallas",
@@ -54,15 +56,6 @@ var replies = {
              } else if (i + 1 < parts.length && locationMap.has(parts[i] + " " + parts[i+1])){
                 return parts[i] + " " + parts[i+1];
              }
-        }
-       
-        var res = replyData.filter(function(one) {
-            return one.regex.test(input);//test if there is a match
-        });
-        var one = _.sample(res);
-        if (one) {
-            return one.reply;
-            //return one.fn(input);
         }
         return null;
     }
