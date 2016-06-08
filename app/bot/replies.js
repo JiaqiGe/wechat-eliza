@@ -16,7 +16,10 @@ var replyData = [
         // reply: "I'm great, and you?"
         reply: "I'm great. Nice talking to you, I am an ORBITZ robot, you can ask me anything."
     },
-
+    {
+	   regex: /hi/i,
+	   reply: "Hi, there, how are you?"
+	},
     {
         regex: /travel/i,
         reply: "You found the right one, I am a travel expert."
@@ -31,17 +34,7 @@ var replyData = [
 
 var replies = {
     find: function(input) {
-        var res = replyData.filter(function(one) {
-            return one.regex.test(input);//test if there is a match
-        });
-        var one = _.sample(res);
-        if (one) {
-            return one.reply;
-            //return one.fn(input);
-        }
-        // console.log("input:" + input);
-
-        
+         
         var location = ["chicago", "new york", "seattle", "los angeles", "houston",
         "philadelphia", "phoenix", "san antonio", "san diego", "las vegas", "dallas",
         "san jose", "austin", "columbus", "boston", "detroit", "honolulu", "long beach"];
@@ -61,14 +54,15 @@ var replies = {
         var output = null;
         var locationFlag = 1;
         for (var i=0; i<parts.length; i++) {
-            console.log("parts:" + parts[i]);
+           locationFlag = 1;
+         console.log("parts:" + parts[i]);
              if (locationMap.has(parts[i])) {
                 // console.log("found");
                 output = parts[i];
                 locationFlag = 0;
                 break;
              } else if (i + 1 < parts.length && locationMap.has(parts[i] + " " + parts[i+1])){
-                output = parts[i] + " " + parts[i+1];
+                output = parts[i] + parts[i+1];
                 locationFlag = 0;
                 break;
              } 
@@ -87,6 +81,17 @@ var replies = {
             } 
         }
         if(locationFlag == 0) return "click this link, I already help you find all the hotels in this area: www.expedia.com/go?type=Hotel-Search&destination=" + output;
+        var res = replyData.filter(function(one) {
+            return one.regex.test(input);//test if there is a match
+        });
+        var one = _.sample(res);
+        if (one) {
+            return one.reply;
+            //return one.fn(input);
+        }
+        // console.log("input:" + input);
+
+       
         return output;
     }
 };
