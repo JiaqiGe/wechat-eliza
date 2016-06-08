@@ -20,7 +20,7 @@ module.exports = function (app, config) {
 	app.set('showStackError', true)
 
 	// use express favicon
-	app.use(favicon('../public/images/favicon.ico'));
+	app.use(favicon(config.root + '/public/images/favicon.ico'));
 
 	
 	// views config
