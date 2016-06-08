@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-var ElizaBot = require('eliza/elizabot.js')
+var ElizaBot = require('../bot/elizabot')
 var util = require("util");
 var elizas = {};
 
@@ -69,7 +69,7 @@ exports.receive = function (req, res, next) {
     message.reply = exports.message(message.to, message.from, message.content);
 
     var str = util.format("<xml><ToUserName>%s</ToUserName><FromUserName>%s</FromUserName><CreateTime>%d</CreateTime><MsgType>text</MsgType><Content><![CDATA[%s]]></Content></xml>", message.from, message.to, message.createtime + 1, message.reply);
-    var image = util.format("<xml><ToUserName>%s</ToUserName><FromUserName>%s</FromUserName><CreateTime>%d</CreateTime><MsgType>image</MsgType><PicUrl>http://a.travel-assets.com/lxweb/media-vault/395478_m.jpeg?v=101761</PicUrl></xml>", message.from, message.to, message.createtime + 1);
+    // var image = util.format("<xml><ToUserName>%s</ToUserName><FromUserName>%s</FromUserName><CreateTime>%d</CreateTime><MsgType>image</MsgType><PicUrl>http://a.travel-assets.com/lxweb/media-vault/395478_m.jpeg?v=101761</PicUrl></xml>", message.from, message.to, message.createtime + 1);
     console.log(message.from, ">", message.content);
     console.log(message.from, "<", message.reply);
     console.log("--");
