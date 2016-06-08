@@ -74,6 +74,6 @@ exports.receive = function (req, res, next) {
     console.log(message.from, "<", message.reply);
     console.log("--");
     //console.log(str);
-    res.send(image);
+    res.send(str);
 }
 
