@@ -19,14 +19,14 @@ var replyData = [
 
     {
         regex: /hi/i,
-        replay: "hi, there, how are you"
+        reply: "hi, there, how are you"
     },
 
     {
         regex: /travel/i,
-        replay: "You found the right one, I am a travel expert."
+        reply: "You found the right one, I am a travel expert."
     },
-    
+
     {
         regex: /english/i,
         reply: "Do you speak it?"
