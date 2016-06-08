@@ -20,9 +20,10 @@ exports.message = function (from, to, message) {
     var say = "";
     // figure out if this is for us
     say = replies.find(message);
-    if (say) {
-        return say;
-    }
+      if (say) {
+         return "try out hotels: www.expedia.com/go?type=Hotel-Search&destination=" + say +
+        " or open your app : expda://hotelSearch?";
+      }
 
     // do we already have a bot for this user?
     var eliza = elizas[from]
