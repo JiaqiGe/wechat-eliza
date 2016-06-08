@@ -33,6 +33,7 @@ var replies = {
         //     return one.reply;
         //     //return one.fn(input);
         // }
+        return input;
         console.log("input:" + input);
         var location = ["chicago", "new york", "seattle", "los angeles", "houston",
         "philadelphia", "phoenix", "san antonio", "san diego", "las vegas", "dallas",
