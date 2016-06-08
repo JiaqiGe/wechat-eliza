@@ -21,8 +21,8 @@ exports.message = function (from, to, message) {
     // figure out if this is for us
     say = replies.find(message);
       if (say) {
-         return "try out hotels: www.expedia.com/go?type=Hotel-Search&destination=" + say +
-        " or open your app : expda://hotelSearch?";
+         return "click this link, I already help you find all the hotels in this area: www.expedia.com/go?type=Hotel-Search&destination=" + say 
+        ;
       }
 
     // do we already have a bot for this user?

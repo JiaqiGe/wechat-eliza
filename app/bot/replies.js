@@ -33,8 +33,7 @@ var replies = {
         //     return one.reply;
         //     //return one.fn(input);
         // }
-        return input;
-        console.log("input:" + input);
+        // console.log("input:" + input);
         var location = ["chicago", "new york", "seattle", "los angeles", "houston",
         "philadelphia", "phoenix", "san antonio", "san diego", "las vegas", "dallas",
         "san jose", "austin", "columbus", "boston", "detroit", "honolulu", "long beach"];
@@ -52,7 +51,7 @@ var replies = {
         for (var i=0; i<parts.length; i++) {
             console.log("parts:" + parts[i]);
              if (locationMap.has(parts[i])) {
-                console.log("found");
+                // console.log("found");
                 return parts[i];
              } else if (i + 1 < parts.length && locationMap.has(parts[i] + " " + parts[i+1])){
                 return parts[i] + " " + parts[i+1];
